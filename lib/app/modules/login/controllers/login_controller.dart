@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:poi_poi_todo/app/modules/home/views/home_view.dart';
 
 import '../../../routes/app_pages.dart';
 
@@ -42,5 +43,9 @@ class LoginController extends GetxController {
 
   void onTapSignUp() {
     Get.offNamed(Routes.SIGNUP);
+  }
+
+  Widget onLoggedIn() {
+    return HomeView();
   }
 }
