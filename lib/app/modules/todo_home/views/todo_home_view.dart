@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:poi_poi_todo/app/modules/todo_home/widgets/todo_card.dart';
 
 import '../controllers/todo_home_controller.dart';
 
@@ -70,16 +71,7 @@ class TodoHomeView extends GetView<TodoHomeController> {
                       itemCount: controller.todos.length,
                       shrinkWrap: true,
                       physics: BouncingScrollPhysics(),
-                      itemBuilder: (context, index) => Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              Text(controller.todos[index].content!),
-                            ],
-                          ),
-                        ),
-                      ),
+                      itemBuilder: (context, index) => TodoCard(todoModel: controller.todos[index]),
                     ),
             ),
           ],

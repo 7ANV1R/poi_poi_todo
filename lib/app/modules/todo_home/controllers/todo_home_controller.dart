@@ -51,4 +51,34 @@ class TodoHomeController extends GetxController {
       return retVal;
     });
   }
+
+  Future<void> updateTODO(bool newValue, String todoID) async {
+    try {
+      await firebaseFirestore.collection("consumers").doc(todoID).update({"done": newValue});
+    } catch (e) {
+      // ignore: avoid_print
+      print(e);
+      rethrow;
+    }
+  }
+
+  Future<void> deleteTODO(String todoID) async {
+    try {
+      await firebaseFirestore.collection("consumers").doc(todoID).delete();
+    } catch (e) {
+      // ignore: avoid_print
+      print(e);
+      rethrow;
+    }
+  }
+
+  Future<void> updateTODOContent(String newContent, String todoID) async {
+    try {
+      await firebaseFirestore.collection("consumers").doc(todoID).update({"content": newContent});
+    } catch (e) {
+      // ignore: avoid_print
+      print(e);
+      rethrow;
+    }
+  }
 }
